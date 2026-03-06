@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,415 +19,418 @@
             --font-body: 'Inter', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+```
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: var(--font-body);
-            background: var(--color-cream);
-            color: var(--color-charcoal);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    body {
+        font-family: var(--font-body);
+        background: var(--color-cream);
+        color: var(--color-charcoal);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 85vh;
-            background: linear-gradient(135deg, var(--color-sage) 0%, #6B7F66 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+    /* Hero Section */
+    .hero {
+        position: relative;
+        height: 85vh;
+        background: linear-gradient(135deg, var(--color-sage) 0%, #6B7F66 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(90deg, rgba(139, 157, 131, 0.05) 1px, transparent 1px),
-                linear-gradient(rgba(139, 157, 131, 0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.4;
-        }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(90deg, rgba(139, 157, 131, 0.05) 1px, transparent 1px),
+            linear-gradient(rgba(139, 157, 131, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        opacity: 0.4;
+    }
 
-        .hero-content {
-            position: relative;
-            text-align: center;
-            color: white;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 2rem;
-            animation: fadeInUp 0.8s ease-out;
-        }
+    .hero-content {
+        position: relative;
+        text-align: center;
+        color: white;
+        z-index: 2;
+        max-width: 900px;
+        padding: 0 2rem;
+        animation: fadeInUp 0.8s ease-out;
+    }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
+    .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        letter-spacing: -0.02em;
+    }
+
+    .hero-meta {
+        font-size: 1.125rem;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        opacity: 0.95;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-tags {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Navigation */
+    nav {
+        position: sticky;
+        top: 0;
+        background: rgba(250, 248, 243, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--color-stone);
+        z-index: 100;
+        padding: 1rem 0;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: var(--color-charcoal);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+        text-transform: uppercase;
+    }
+
+    nav a:hover {
+        color: var(--color-sage);
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Section */
+    section {
+        padding: 6rem 0;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 300;
+        font-style: italic;
+        margin-bottom: 1rem;
+        color: var(--color-charcoal);
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+        color: #666;
+        font-weight: 300;
+    }
+
+    /* Trip Overview Cards */
+    .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .overview-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .overview-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-charcoal);
+    }
+
+    .card-text {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    /* Timeline */
+    .timeline {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .timeline-item {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        position: relative;
+        border-left: 4px solid var(--color-sage);
+        transition: transform 0.3s;
+    }
+
+    .timeline-item:hover {
+        transform: translateX(8px);
+    }
+
+    .day-number {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--color-sage);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .day-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--color-charcoal);
+    }
+
+    .day-activities {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .activity {
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .activity::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--color-terracotta);
+    }
+
+    .activity-time {
+        font-weight: 600;
+        color: var(--color-sage);
+        margin-right: 0.5rem;
+    }
+
+    /* Hotel Section */
+    .hotel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+    }
+
+    .hotel-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s;
+    }
+
+    .hotel-card:hover {
+        transform: scale(1.02);
+    }
+
+    .hotel-image {
+        width: 100%;
+        height: 220px;
+        background: linear-gradient(135deg, var(--color-sage), var(--color-terracotta));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+    }
+
+    .hotel-content {
+        padding: 2rem;
+    }
+
+    .hotel-name {
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--color-charcoal);
+    }
+
+    .hotel-location {
+        color: var(--color-sage);
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .hotel-dates {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+    .hotel-status {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+
+    .status-booked {
+        background: #E8F5E9;
+        color: #2E7D32;
+    }
+
+    .status-pending {
+        background: #FFF3E0;
+        color: #E65100;
+    }
+
+    /* Tips Section */
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .tip-card {
+        background: linear-gradient(135deg, rgba(139, 157, 131, 0.1), rgba(198, 123, 92, 0.1));
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--color-stone);
+    }
+
+    .tip-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        color: var(--color-charcoal);
+    }
+
+    .tip-list {
+        list-style: none;
+    }
+
+    .tip-list li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-size: 0.95rem;
+    }
+
+    .tip-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-sage);
+        font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--color-charcoal);
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+        margin-top: 6rem;
+    }
+
+    footer p {
+        opacity: 0.8;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
         .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-meta {
-            font-size: 1.125rem;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            opacity: 0.95;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-tags {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(250, 248, 243, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-stone);
-            z-index: 100;
-            padding: 1rem 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--color-charcoal);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            color: var(--color-sage);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Section */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 300;
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--color-charcoal);
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #666;
-            font-weight: 300;
-        }
-
-        /* Trip Overview Cards */
-        .overview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .overview-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .overview-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        .card-icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
         }
+        
+        nav ul {
+            gap: 1.5rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .container {
+            padding: 0 1.5rem;
+        }
+    }
 
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--color-charcoal);
-        }
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+```
 
-        .card-text {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Timeline */
-        .timeline {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            position: relative;
-            border-left: 4px solid var(--color-sage);
-            transition: transform 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(8px);
-        }
-
-        .day-number {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--color-sage);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .day-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-charcoal);
-        }
-
-        .day-activities {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .activity {
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .activity::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--color-terracotta);
-        }
-
-        .activity-time {
-            font-weight: 600;
-            color: var(--color-sage);
-            margin-right: 0.5rem;
-        }
-
-        /* Hotel Section */
-        .hotel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .hotel-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-
-        .hotel-card:hover {
-            transform: scale(1.02);
-        }
-
-        .hotel-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, var(--color-sage), var(--color-terracotta));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .hotel-content {
-            padding: 2rem;
-        }
-
-        .hotel-name {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--color-charcoal);
-        }
-
-        .hotel-location {
-            color: var(--color-sage);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .hotel-dates {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .hotel-status {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .status-booked {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-
-        .status-pending {
-            background: #FFF3E0;
-            color: #E65100;
-        }
-
-        /* Tips Section */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .tip-card {
-            background: linear-gradient(135deg, rgba(139, 157, 131, 0.1), rgba(198, 123, 92, 0.1));
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--color-stone);
-        }
-
-        .tip-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--color-charcoal);
-        }
-
-        .tip-list {
-            list-style: none;
-        }
-
-        .tip-list li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .tip-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--color-sage);
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--color-charcoal);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 6rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                gap: 1.5rem;
-            }
-            
-            section {
-                padding: 4rem 0;
-            }
-            
-            .container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
 <body>
     <!-- Hero Section -->
@@ -443,377 +447,385 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#itinerary">Itinerary</a></li>
-            <li><a href="#hotels">Hotels</a></li>
-            <li><a href="#tips">Tips</a></li>
-        </ul>
-    </nav>
+```
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#itinerary">Itinerary</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#tips">Tips</a></li>
+    </ul>
+</nav>
 
-    <!-- Overview Section -->
-    <section id="overview">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Trip at a Glance</h2>
-                <p class="section-subtitle">A carefully curated journey through Switzerland's most iconic destinations</p>
+<!-- Overview Section -->
+<section id="overview">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Trip at a Glance</h2>
+            <p class="section-subtitle">A carefully curated journey through Switzerland's most iconic destinations</p>
+        </div>
+        
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="card-icon">🏔️</div>
+                <h3 class="card-title">3 Cities</h3>
+                <p class="card-text">Lausanne's lakeside charm, Luzern's medieval beauty, and Grindelwald's Alpine majesty</p>
             </div>
             
-            <div class="overview-grid">
-                <div class="overview-card">
-                    <div class="card-icon">🏔️</div>
-                    <h3 class="card-title">3 Cities</h3>
-                    <p class="card-text">Lausanne's lakeside charm, Luzern's medieval beauty, and Grindelwald's Alpine majesty</p>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="card-icon">🚂</div>
-                    <h3 class="card-title">Swiss Travel Pass</h3>
-                    <p class="card-text">8-day unlimited access to trains, boats, and mountain railways across Switzerland</p>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="card-icon">🏨</div>
-                    <h3 class="card-title">Luxury Stays</h3>
-                    <p class="card-text">Amex Fine Hotels & Resorts with $100 credits, breakfast, and room upgrades</p>
-                </div>
-                
-                <div class="overview-card">
-                    <div class="card-icon">⛳</div>
-                    <h3 class="card-title">Golf Day</h3>
-                    <p class="card-text">9-hole round at Interlaken with stunning mountain views</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Itinerary Section -->
-    <section id="itinerary" style="background: white;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Daily Itinerary</h2>
-                <p class="section-subtitle">Your day-by-day adventure through the Swiss Alps</p>
+            <div class="overview-card">
+                <div class="card-icon">🚗</div>
+                <h3 class="card-title">Car Rental</h3>
+                <p class="card-text">9-day rental for ultimate flexibility exploring Switzerland at your own pace</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="day-number">Day 1</div>
-                    <div class="day-title">Sunday, Aug 10-11 · Arrival</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">7:25 PM:</span> Depart JFK on LX 23
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">9:15 AM:</span> Land in Geneva, train to Lausanne (1 hour)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Check into Royal Savoy Hotel & Spa, recover from flight
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 2</div>
-                    <div class="day-title">Monday, Aug 11 · Lake Geneva</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> Train to Montreux (20 minutes)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Lakeside Promenade walk, Château de Chillon
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Evening:</span> Return to Lausanne, spa time with $100 credit
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 3</div>
-                    <div class="day-title">Tuesday, Aug 12 · To Luzern</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> Golden Pass Railway to Luzern (2.5 hours scenic route)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Chapel Bridge, Old Town exploration
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Evening:</span> Lake Luzern waterfront walk
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 4</div>
-                    <div class="day-title">Wednesday, Aug 13 · Mt. Rigi</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> Boat cruise to Vitznau, cogwheel train to Rigi Kulm
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Summit:</span> 360° panoramic views, mountain restaurant
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Return via cable car to Weggis, boat to Luzern
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 5</div>
-                    <div class="day-title">Thursday, Aug 14 · To Grindelwald</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> Train to Grindelwald (2 hours)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Check into Sunstar Hotel, explore Alpine village
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Evening:</span> Settle in, prepare for mountain adventures
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 6</div>
-                    <div class="day-title">Friday, Aug 15 · First Cliff Walk</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> Cable car to First, Cliff Walk platform
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Midday:</span> First Glider, Mountain Cart, alpine activities
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Mountain restaurant, return to village
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 7</div>
-                    <div class="day-title">Saturday, Aug 16 · Golf & Valley</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> <strong>1 adult golfs</strong> at Interlaken (9 holes, club rental available)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Morning:</span> <strong>Others:</strong> Easy village activities with toddler
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Together: Lauterbrunnen Valley, Staubbach Falls
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 8</div>
-                    <div class="day-title">Sunday, Aug 17 · Jungfraujoch</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">7:30 AM:</span> Early departure to Jungfraujoch - Top of Europe
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Summit:</span> Sphinx Observatory, Ice Palace, Aletsch Glacier
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">Afternoon:</span> Return to Grindelwald, rest after big day
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="day-number">Day 9</div>
-                    <div class="day-title">Monday, Aug 18 · Departure</div>
-                    <div class="day-activities">
-                        <div class="activity">
-                            <span class="activity-time">7:30 AM:</span> Check out, train to Geneva Airport (3 hours)
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">11:40 AM:</span> Depart Geneva on LX 22
-                        </div>
-                        <div class="activity">
-                            <span class="activity-time">2:20 PM:</span> Arrive JFK
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hotels Section -->
-    <section id="hotels">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Where We're Staying</h2>
-                <p class="section-subtitle">Booked through Amex Fine Hotels & Resorts for maximum benefits</p>
+            <div class="overview-card">
+                <div class="card-icon">🏨</div>
+                <h3 class="card-title">Luxury Stays</h3>
+                <p class="card-text">Amex Fine Hotels & Resorts with $100 credits, breakfast, and room upgrades</p>
             </div>
             
-            <div class="hotel-grid">
-                <div class="hotel-card">
-                    <div class="hotel-image">🏛️</div>
-                    <div class="hotel-content">
-                        <h3 class="hotel-name">Royal Savoy Hotel & Spa</h3>
-                        <div class="hotel-location">Lausanne</div>
-                        <div class="hotel-dates">Aug 11-13, 2026 (2 nights)</div>
-                        <div class="card-text">5-star lakefront palace with spa, $100 credit, breakfast included</div>
-                        <span class="hotel-status status-booked">Booked</span>
+            <div class="overview-card">
+                <div class="card-icon">⛳</div>
+                <h3 class="card-title">Golf Day</h3>
+                <p class="card-text">9-hole round at Interlaken with stunning mountain views</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Itinerary Section -->
+<section id="itinerary" style="background: white;">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Daily Itinerary</h2>
+            <p class="section-subtitle">Your day-by-day adventure through the Swiss Alps</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="day-number">Day 1</div>
+                <div class="day-title">Sunday, Aug 10-11 · Arrival</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">7:25 PM:</span> Depart JFK on LX 23
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">9:15 AM:</span> Land in Geneva, pick up rental car
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Drive to Lausanne (1 hour), check into Royal Savoy
                     </div>
                 </div>
+            </div>
 
-                <div class="hotel-card">
-                    <div class="hotel-image">🏰</div>
-                    <div class="hotel-content">
-                        <h3 class="hotel-name">Mandarin Oriental Palace</h3>
-                        <div class="hotel-location">Luzern</div>
-                        <div class="hotel-dates">Aug 13-15, 2026 (2 nights)</div>
-                        <div class="card-text">Belle Époque landmark, FHR property, complimentary 3rd night offer</div>
-                        <span class="hotel-status status-pending">To Book</span>
+            <div class="timeline-item">
+                <div class="day-number">Day 2</div>
+                <div class="day-title">Monday, Aug 11 · Lake Geneva</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> Drive to Montreux (30 minutes)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Lakeside Promenade, Château de Chillon, Lavaux vineyards
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening:</span> Return to Lausanne, spa time with $100 credit
                     </div>
                 </div>
+            </div>
 
-                <div class="hotel-card">
-                    <div class="hotel-image">⛰️</div>
-                    <div class="hotel-content">
-                        <h3 class="hotel-name">Sunstar Hotel Grindelwald</h3>
-                        <div class="hotel-location">Grindelwald</div>
-                        <div class="hotel-dates">Aug 15-19, 2026 (4 nights)</div>
-                        <div class="card-text">Mountain views, outdoor pool, across from cable cars, excellent breakfast</div>
-                        <span class="hotel-status status-pending">To Book</span>
+            <div class="timeline-item">
+                <div class="day-number">Day 3</div>
+                <div class="day-title">Tuesday, Aug 12 · To Luzern</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> Drive to Luzern (2 hours scenic route)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Chapel Bridge, Old Town exploration
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening:</span> Lake Luzern waterfront walk
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 4</div>
+                <div class="day-title">Wednesday, Aug 13 · Mt. Rigi</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> Boat cruise to Vitznau, cogwheel train to Rigi Kulm (scenic!)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Summit:</span> 360° panoramic views, mountain restaurant
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Cable car to Weggis, boat back to Luzern
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 5</div>
+                <div class="day-title">Thursday, Aug 14 · To Grindelwald</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> Drive to Grindelwald (2 hours)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Check into Sunstar Hotel, explore Alpine village
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Evening:</span> Settle in, prepare for mountain adventures
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 6</div>
+                <div class="day-title">Friday, Aug 15 · First Cliff Walk</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> Cable car to First summit (25 min scenic ride)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Midday:</span> Cliff Walk, First Glider, Mountain Cart activities
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Mountain restaurant, cable car back to village
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 7</div>
+                <div class="day-title">Saturday, Aug 16 · Golf & Valley</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> <strong>1 adult drives to Interlaken</strong> for golf (9 holes, 20 min drive)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Morning:</span> <strong>Others:</strong> Easy village activities with toddler
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Together: Drive to Lauterbrunnen Valley, Staubbach Falls
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 8</div>
+                <div class="day-title">Sunday, Aug 17 · Jungfraujoch</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">7:30 AM:</span> Train to Jungfraujoch - Top of Europe (highest railway!)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Summit:</span> Sphinx Observatory, Ice Palace, Aletsch Glacier views
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">Afternoon:</span> Scenic train ride back, rest after big day
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="day-number">Day 9</div>
+                <div class="day-title">Monday, Aug 18 · Departure</div>
+                <div class="day-activities">
+                    <div class="activity">
+                        <span class="activity-time">7:30 AM:</span> Check out, drive to Geneva Airport (2.5 hours)
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">10:30 AM:</span> Return rental car at airport
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">11:40 AM:</span> Depart Geneva on LX 22
+                    </div>
+                    <div class="activity">
+                        <span class="activity-time">2:20 PM:</span> Arrive JFK
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Tips Section -->
-    <section id="tips" style="background: white;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Essential Tips</h2>
-                <p class="section-subtitle">What we learned from planning this trip</p>
+<!-- Hotels Section -->
+<section id="hotels">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Where We're Staying</h2>
+            <p class="section-subtitle">Booked through Amex Fine Hotels & Resorts for maximum benefits</p>
+        </div>
+        
+        <div class="hotel-grid">
+            <div class="hotel-card">
+                <div class="hotel-image">🏛️</div>
+                <div class="hotel-content">
+                    <h3 class="hotel-name">Royal Savoy Hotel & Spa</h3>
+                    <div class="hotel-location">Lausanne</div>
+                    <div class="hotel-dates">Aug 11-13, 2026 (2 nights)</div>
+                    <div class="card-text">5-star lakefront palace with spa, $100 credit, breakfast included</div>
+                    <span class="hotel-status status-booked">Booked</span>
+                </div>
             </div>
-            
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h3 class="tip-title">Transportation</h3>
-                    <ul class="tip-list">
-                        <li>Swiss Travel Pass: 8 days for 4 adults = $2,080</li>
-                        <li>Toddler rides free with Family Card</li>
-                        <li>50% off Jungfraujoch, free Mt Rigi</li>
-                        <li>Includes boats and mountain railways</li>
-                    </ul>
-                </div>
 
-                <div class="tip-card">
-                    <h3 class="tip-title">With a Toddler</h3>
-                    <ul class="tip-list">
-                        <li>Build in 2-3 hour afternoon naps daily</li>
-                        <li>Early starts (7-8 AM) before crowds</li>
-                        <li>Bring baby carrier for non-stroller terrain</li>
-                        <li>Pack warm layers - cold at altitude!</li>
-                        <li>Flexible schedule for meltdowns</li>
-                    </ul>
+            <div class="hotel-card">
+                <div class="hotel-image">🏰</div>
+                <div class="hotel-content">
+                    <h3 class="hotel-name">Mandarin Oriental Palace</h3>
+                    <div class="hotel-location">Luzern</div>
+                    <div class="hotel-dates">Aug 13-15, 2026 (2 nights)</div>
+                    <div class="card-text">Belle Époque landmark, FHR property, complimentary 3rd night offer</div>
+                    <span class="hotel-status status-pending">To Book</span>
                 </div>
+            </div>
 
-                <div class="tip-card">
-                    <h3 class="tip-title">Packing Essentials</h3>
-                    <ul class="tip-list">
-                        <li>Winter coat for Jungfraujoch</li>
-                        <li>Lightweight stroller + baby carrier</li>
-                        <li>Rain gear and layers</li>
-                        <li>Portable high chair seat</li>
-                        <li>Emergency snacks and sippy cups</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3 class="tip-title">Golf Day</h3>
-                    <ul class="tip-list">
-                        <li>Interlaken-Unterseen Golf Club (9 holes)</li>
-                        <li>Club rental: CHF 30-50 (~$35-55)</li>
-                        <li>Book 1-2 weeks in advance</li>
-                        <li>No need to pack clubs - rent everything</li>
-                        <li>Mountain views while you play!</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3 class="tip-title">Amex FHR Benefits</h3>
-                    <ul class="tip-list">
-                        <li>$100 property credit per stay</li>
-                        <li>Daily breakfast for 2 included</li>
-                        <li>Room upgrade when available</li>
-                        <li>4 PM late checkout guaranteed</li>
-                        <li>Average value: $550 per stay</li>
-                    </ul>
-                </div>
-
-                <div class="tip-card">
-                    <h3 class="tip-title">Budget Estimate</h3>
-                    <ul class="tip-list">
-                        <li>Hotels: $8,000 - $12,000</li>
-                        <li>Swiss Travel Pass: $2,080</li>
-                        <li>Mountain excursions: $400-600</li>
-                        <li>Meals: $2,000 - $3,000</li>
-                        <li>Total: $13,000 - $18,500</li>
-                    </ul>
+            <div class="hotel-card">
+                <div class="hotel-image">⛰️</div>
+                <div class="hotel-content">
+                    <h3 class="hotel-name">Sunstar Hotel Grindelwald</h3>
+                    <div class="hotel-location">Grindelwald</div>
+                    <div class="hotel-dates">Aug 15-19, 2026 (4 nights)</div>
+                    <div class="card-text">Mountain views, outdoor pool, across from cable cars, excellent breakfast</div>
+                    <span class="hotel-status status-pending">To Book</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>Switzerland Adventure 2026 · Ali's Family Trip</p>
-            <p style="margin-top: 0.5rem; opacity: 0.6;">Created with Claude</p>
+<!-- Tips Section -->
+<section id="tips" style="background: white;">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Essential Tips</h2>
+            <p class="section-subtitle">What we learned from planning this trip</p>
         </div>
-    </footer>
+        
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3 class="tip-title">Transportation</h3>
+                <ul class="tip-list">
+                    <li>Car rental: 9 days for city-to-city travel</li>
+                    <li>Trains: Mt Rigi, Jungfraujoch, cable cars</li>
+                    <li>Best of both: flexibility + scenic railways</li>
+                    <li>Swiss highway vignette: CHF 40</li>
+                    <li>Car seat for toddler included</li>
+                </ul>
+            </div>
 
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            <div class="tip-card">
+                <h3 class="tip-title">With a Toddler</h3>
+                <ul class="tip-list">
+                    <li>Build in 2-3 hour afternoon naps daily</li>
+                    <li>Early starts (7-8 AM) before crowds</li>
+                    <li>Bring baby carrier for non-stroller terrain</li>
+                    <li>Pack warm layers - cold at altitude!</li>
+                    <li>Flexible schedule for meltdowns</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3 class="tip-title">Packing Essentials</h3>
+                <ul class="tip-list">
+                    <li>Winter coat for Jungfraujoch</li>
+                    <li>Lightweight stroller + baby carrier</li>
+                    <li>Rain gear and layers</li>
+                    <li>Portable high chair seat</li>
+                    <li>Emergency snacks and sippy cups</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3 class="tip-title">Golf Day</h3>
+                <ul class="tip-list">
+                    <li>Interlaken-Unterseen Golf Club (9 holes)</li>
+                    <li>Club rental: CHF 30-50 (~$35-55)</li>
+                    <li>Book 1-2 weeks in advance</li>
+                    <li>No need to pack clubs - rent everything</li>
+                    <li>Mountain views while you play!</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3 class="tip-title">Amex FHR Benefits</h3>
+                <ul class="tip-list">
+                    <li>$100 property credit per stay</li>
+                    <li>Daily breakfast for 2 included</li>
+                    <li>Room upgrade when available</li>
+                    <li>4 PM late checkout guaranteed</li>
+                    <li>Average value: $550 per stay</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3 class="tip-title">Budget Estimate</h3>
+                <ul class="tip-list">
+                    <li>Hotels: $8,000 - $12,000</li>
+                    <li>Car rental (9 days): $700 - $1,200</li>
+                    <li>Gas & parking: $450 - $700</li>
+                    <li>Mountain railways: $800 - $1,000</li>
+                    <li>Meals: $2,000 - $3,000</li>
+                    <li>Total: $12,000 - $18,000</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>Switzerland Adventure 2026 · Ali's Family Trip</p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">Created with Claude</p>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         });
+    });
 
-        // Fade in timeline items on scroll
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    // Fade in timeline items on scroll
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(20px)';
-                    
-                    setTimeout(() => {
-                        entry.target.style.transition = 'opacity 0.6s, transform 0.6s';
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
-                    
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '0';
+                entry.target.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    entry.target.style.transition = 'opacity 0.6s, transform 0.6s';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, 100);
+                
+                observer.unobserve(entry.target);
+            }
         });
-    </script>
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+</script>
+```
+
 </body>
 </html>
