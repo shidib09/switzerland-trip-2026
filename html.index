@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switzerland 2026 · Ali's Family Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a2430;          /* deep slate, like alpine shadow */
+    --paper:#f6f4ef;        /* warm snow */
+    --mist:#e7e3da;         /* muted card */
+    --glacier:#4a7c8c;      /* glacier teal */
+    --glacier-deep:#2f5763;
+    --alpenglow:#c66a4a;    /* sunset-on-snow accent, used sparingly */
+    --line:#d3cec3;
+    --muted:#6b7480;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,244,239,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  nav .brand{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;font-weight:500}
+  nav .links{display:flex;gap:22px}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+  nav a:hover{color:var(--glacier-deep)}
+  @media(max-width:640px){nav .links{gap:15px}nav a{font-size:13px}}
+
+  /* ---- hero ---- */
+  header{padding:88px 0 64px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--glacier);
+    margin-bottom:22px;
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(46px,9vw,92px);line-height:.98;letter-spacing:-.02em;
+    margin-bottom:26px;
+  }
+  h1 em{font-style:italic;color:var(--glacier-deep)}
+  .lede{font-size:18px;color:var(--muted);max-width:44ch;margin-bottom:36px}
+  .route{
+    display:flex;flex-wrap:wrap;gap:10px 0;align-items:center;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);
+  }
+  .route span{padding:5px 13px;background:var(--mist);border:1px solid var(--line);border-radius:2px}
+  .route i{color:var(--glacier);padding:0 8px;font-style:normal}
+
+  /* ---- section frame ---- */
+  section{padding:66px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}
+  .sec-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--glacier)}
+  h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,4.5vw,40px);letter-spacing:-.01em}
+
+  /* ---- glance ---- */
+  .glance{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .glance div{background:var(--paper);padding:24px 20px}
+  .glance .k{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1}
+  .glance .l{font-size:13px;color:var(--muted);margin-top:8px}
+  @media(max-width:640px){.glance{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---- timeline ---- */
+  .day{
+    display:grid;grid-template-columns:120px 1fr;gap:28px;
+    padding:26px 0;border-top:1px solid var(--line);
+  }
+  .day:first-child{border-top:none}
+  .day .date{font-family:'IBM Plex Mono',monospace;font-size:13px}
+  .day .date .d{color:var(--glacier-deep);font-weight:500}
+  .day .date .tag{
+    display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .day h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin-bottom:10px}
+  .day ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .day li{padding-left:20px;position:relative;font-size:15px;color:#38424f}
+  .day li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--glacier);border-radius:50%}
+  .day li b{color:var(--ink);font-weight:600}
+  .day.flex li::before{background:var(--alpenglow)}
+  @media(max-width:640px){.day{grid-template-columns:1fr;gap:10px}}
+
+  /* ---- hotels ---- */
+  .hotel{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;padding:22px 0;border-top:1px solid var(--line)}
+  .hotel:first-child{border-top:none}
+  .hotel h3{font-family:'Fraunces',serif;font-weight:500;font-size:21px}
+  .hotel .meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--glacier);margin:4px 0 8px}
+  .hotel p{font-size:14px;color:var(--muted);max-width:52ch}
+  .pill{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:2px;white-space:nowrap}
+  .pill.done{background:var(--glacier-deep);color:#fff}
+  .pill.open{background:transparent;border:1px solid var(--alpenglow);color:var(--alpenglow)}
+
+  /* ---- open items ---- */
+  .todo{background:var(--ink);color:var(--paper);border-radius:3px;padding:32px 30px}
+  .todo h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:#fff;margin-bottom:6px}
+  .todo p{color:#aeb6c0;font-size:14px;margin-bottom:22px}
+  .todo ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .todo li{display:flex;gap:14px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid #2c3744}
+  .todo li:last-child{border-bottom:none;padding-bottom:0}
+  .todo .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--alpenglow)}
+  .todo .t{font-size:15px}
+  .todo .t small{display:block;color:#8b94a0;font-size:13px;margin-top:2px}
+
+  /* ---- tips ---- */
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .tips div{background:var(--paper);padding:24px 22px}
+  .tips h3{font-size:13px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--glacier);margin-bottom:14px}
+  .tips ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .tips li{font-size:14px;color:#38424f;padding-left:16px;position:relative}
+  .tips li::before{content:"—";position:absolute;left:0;color:var(--line)}
+  @media(max-width:640px){.tips{grid-template-columns:1fr}}
+
+  footer{padding:40px 0;text-align:center}
+  footer p{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">SUI · 2026</div>
+  <div class="links">
+    <a href="#itinerary">Itinerary</a>
+    <a href="#stays">Stays</a>
+    <a href="#open">Open</a>
+    <a href="#tips">Tips</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Aug 10–19 · 8 nights · 4 adults + 1 toddler</div>
+  <h1>Switzerland,<br>the <em>Jungfrau</em> way.</h1>
+  <p class="lede">Lake Geneva to the Top of Europe — a car-and-rail family run through the Bernese Oberland, built around a toddler's nap schedule and the region's icons.</p>
+  <div class="route">
+    <span>Geneva</span><i>→</i><span>Lausanne</span><i>→</i><span>Grindelwald</span><i>→</i><span>Geneva</span>
+  </div>
+</div></header>
+
+<section id="glance"><div class="wrap">
+  <div class="glance">
+    <div><div class="k">2</div><div class="l">Base towns — Lausanne, then Grindelwald</div></div>
+    <div><div class="k">4,158<span style="font-size:15px">m</span></div><div class="l">Jungfraujoch, the Top of Europe</div></div>
+    <div><div class="k">1</div><div class="l">7-seat SUV, real A/C, toddler seat</div></div>
+    <div><div class="k">8</div><div class="l">Nights, zero rushed days</div></div>
+  </div>
+</div></section>
+
+<section id="itinerary"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">01</span><h2>The days</h2></div>
+
+  <div class="day">
+    <div class="date"><div class="d">Aug 10–11</div><span class="tag">Arrival</span></div>
+    <div>
+      <h3>JFK → Geneva → Lausanne</h3>
+      <ul>
+        <li><b>7:25 PM</b> — Depart JFK Terminal 1 on <b>LX 023</b> (SWISS business, overnight)</li>
+        <li><b>9:15 AM</b> — Land Geneva, pick up rental car (10:30)</li>
+        <li>Drive ~45 min to Lausanne, check into the Royal Savoy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Aug 11–13</div><span class="tag">Lake Geneva</span></div>
+    <div>
+      <h3>Lausanne</h3>
+      <ul>
+        <li>Lavaux vineyard terraces — UNESCO lakeside walk</li>
+        <li>Château de Chillon &amp; Montreux, 30 min along the lake</li>
+        <li>Lake Geneva paddle-steamer from Ouchy; spa evening</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Thu Aug 13</div><span class="tag">Transfer</span></div>
+    <div>
+      <h3>Lausanne → Grindelwald</h3>
+      <ul>
+        <li>~2h15 drive via Bern</li>
+        <li>Stop in <b>Gruyères</b> — castle village, cheese dairy, fondue lunch</li>
+        <li>Check into Chalet Alia (3–9 PM); settle into the Alpine base</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Fri Aug 14</div><span class="tag">The big one</span></div>
+    <div>
+      <h3>Jungfraujoch — Top of Europe</h3>
+      <ul>
+        <li>Early Eiger Express from Grindelwald Terminal (10 min from the chalet)</li>
+        <li>Sphinx observatory, Ice Palace, Aletsch Glacier views</li>
+        <li>Snow in August — pack real layers; back for afternoon nap</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Sat Aug 15</div><span class="tag">Lifts</span></div>
+    <div>
+      <h3>Grindelwald First</h3>
+      <ul>
+        <li>Gondola to First, the Cliff Walk</li>
+        <li>Walk toward Bachalpsee (carrier, not stroller)</li>
+        <li>Summit playground &amp; restaurant; home by nap time</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Sun Aug 16</div><span class="tag">Valley</span></div>
+    <div>
+      <h3>Lauterbrunnen &amp; Mürren</h3>
+      <ul>
+        <li>Staubbach Falls from the valley floor</li>
+        <li>Cable car to car-free Mürren, lunch with Eiger–Mönch–Jungfrau views</li>
+        <li>Optional Schilthorn / Piz Gloria for the full classic</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Mon Aug 17</div><span class="tag">Lakes</span></div>
+    <div>
+      <h3>Interlaken &amp; Lake Brienz</h3>
+      <ul>
+        <li>Lake Brienz steamer — the turquoise one</li>
+        <li>Harder Kulm funicular at golden hour</li>
+        <li>Back early for the chalet; last Alpine evening</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day flex">
+    <div class="date"><div class="d">—</div><span class="tag">Flex note</span></div>
+    <div>
+      <h3>Weather decides the order</h3>
+      <ul>
+        <li>Check <b>MeteoSwiss</b> the night before and do Jungfraujoch on the clearest day</li>
+        <li>First, Lauterbrunnen, and the lake day swap freely around it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Tue Aug 18</div><span class="tag">Departure eve</span></div>
+    <div>
+      <h3>Grindelwald → Geneva</h3>
+      <ul>
+        <li>Check out by 11, drive ~2h15 (optional Bern old-town stop)</li>
+        <li>Overnight near Geneva Airport — relaxed, no morning rush</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="date"><div class="d">Wed Aug 19</div><span class="tag">Home</span></div>
+    <div>
+      <h3>Geneva → JFK</h3>
+      <ul>
+        <li>Return the car at GVA (09:00)</li>
+        <li><b>11:40 AM</b> — depart Geneva; land JFK mid-afternoon</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="stays"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Where we sleep</h2></div>
+
+  <div class="hotel">
+    <div>
+      <h3>Royal Savoy Hotel &amp; Spa</h3>
+      <div class="meta">LAUSANNE · AUG 11–13 · 2 NIGHTS</div>
+      <p>5-star lakefront palace, booked via Amex Fine Hotels &amp; Resorts — $100 credit, breakfast, noon check-in benefit. Real A/C.</p>
+    </div>
+    <span class="pill done">Booked</span>
+  </div>
+
+  <div class="hotel">
+    <div>
+      <h3>Chalet Alia — Antara 4-Bedroom</h3>
+      <div class="meta">GRINDELWALD · AUG 13–18 · 5 NIGHTS</div>
+      <p>Four king bedrooms, everyone under one roof, 400 m from Grindelwald Terminal and the Eiger Express. Kitchen, laundry, free parking.</p>
+    </div>
+    <span class="pill done">Booked</span>
+  </div>
+
+  <div class="hotel">
+    <div>
+      <h3>Geneva airport hotel</h3>
+      <div class="meta">GENEVA · AUG 18–19 · 1 NIGHT</div>
+      <p>A functional night by GVA before the 11:40 flight — Mövenpick or NH, both with A/C and family rooms.</p>
+    </div>
+    <span class="pill open">To book</span>
+  </div>
+</div></section>
+
+<section id="open"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Still open</h2></div>
+  <div class="todo">
+    <h3>Three things left</h3>
+    <p>Everything else is booked and paid. These close the trip.</p>
+    <ul>
+      <li><span class="n">01</span><span class="t">Jungfraujoch tickets — <b>urgent</b><small>Aug 14, earliest Eiger Express. August slots sell out; buy the flexible fare so weather can move the day.</small></span></li>
+      <li><span class="n">02</span><span class="t">Geneva night, Aug 18–19<small>Airport hotel, two rooms or a family room. Ten-minute task.</small></span></li>
+      <li><span class="n">03</span><span class="t">Cancel the duplicate car booking<small>Old Booking.com reservation 794701552 — the direct Europcar (1205022990) is the one we keep.</small></span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="tips"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">04</span><h2>What we learned</h2></div>
+  <div class="tips">
+    <div>
+      <h3>Apps first</h3>
+      <ul>
+        <li>SBB Mobile for trains — check Supersaver fares</li>
+        <li>MeteoSwiss + webcams before any summit day</li>
+        <li>Jungfrau app for live lift status &amp; tickets</li>
+        <li>Google Maps offline — valleys have dead zones</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Driving</h3>
+      <ul>
+        <li>Vignette included on the rental</li>
+        <li>Speed cameras everywhere — set cruise control</li>
+        <li>Fuel up in villages, ~15% cheaper than highway</li>
+        <li>Park edge-of-town and walk into old centers</li>
+      </ul>
+    </div>
+    <div>
+      <h3>With a toddler</h3>
+      <ul>
+        <li>Guard the 11–1 nap; schedule around it</li>
+        <li>Early starts beat both crowds and clouds</li>
+        <li>Baby carrier for the trails, not the stroller</li>
+        <li>Warm layers — it's below freezing at altitude</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Money</h3>
+      <ul>
+        <li>Always pay in CHF — decline USD conversion</li>
+        <li>CSR / Venture X — no foreign transaction fees</li>
+        <li>Carry CHF 100–200 for huts &amp; meters</li>
+        <li>Coop / Migros close Sundays — stock up Saturday</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Switzerland 2026 · Ali's family trip · updated with Claude</p>
+</div></footer>
+
+</body>
+</html>
